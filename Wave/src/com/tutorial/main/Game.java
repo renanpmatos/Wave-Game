@@ -2,6 +2,7 @@ package com.tutorial.main;
 
 import java.awt.Canvas;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
@@ -36,6 +37,7 @@ public class Game extends Canvas implements Runnable{
 		Help,
 		Shop,
 		Game,
+		Win,
 		End
 	};
 	
@@ -60,7 +62,7 @@ public class Game extends Canvas implements Runnable{
 		
 		if(gameState == STATE.Game) { 
 			handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-			handler.addObject(new Player(WIDTH/2+96, HEIGHT/2-32, ID.Player2, handler));
+			//handler.addObject(new Player(WIDTH/2+96, HEIGHT/2-32, ID.Player2, handler));
 			handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH-50), r.nextInt(Game.HEIGHT-50), ID.BasicEnemy, handler));	
 		}
 		else {
@@ -135,10 +137,13 @@ public class Game extends Canvas implements Runnable{
 					{
 						handler.addObject(new MenuParticle(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuParticle, handler));
 					}
-				}	
+				}
+				/*else if(hud.getLevel() == 14 || hud.getLevel() == 15) {
+					gameState = STATE.Win;
+				}*/
 			}
 		} 
-		else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select){
+		else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Win){
 			menu.tick();
 			handler.tick();
 			
@@ -157,8 +162,11 @@ public class Game extends Canvas implements Runnable{
 		g.fillRect(0,0, WIDTH, HEIGHT);
 
 		if(paused) {
-			g.setColor(Color.white);
-			g.drawString("PAUSED", 100, 100);
+
+			Font fnt = new Font("arial", 1, 50);
+			g.setFont(fnt);
+			g.setColor(Color.blue);
+			g.drawString("PAUSED", 300, 200);
 		}
 		
 		if(gameState == STATE.Game) {
@@ -168,7 +176,7 @@ public class Game extends Canvas implements Runnable{
 		else if(gameState == STATE.Shop){ 
 			shop.render(g);
 		}
-		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select){
+		else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select || gameState == STATE.Win  ){
 			menu.render(g);
 			handler.render(g);	
 		}

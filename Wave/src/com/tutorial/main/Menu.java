@@ -92,6 +92,26 @@ public class Menu extends MouseAdapter{
 				
 			}
 		}
+		
+		// WIN SCREEN
+		if(game.gameState == STATE.Win) {
+			handler.clearEnemys();
+			handler.clearBoss();
+			
+			//Continue
+			if(mouseOver(mx, my, 180, 350, 200, 64)) {
+				game.gameState = STATE.Menu;
+				hud.setLevel(1);
+				hud.setScore(0);
+				
+			}
+			//Menu Button
+			if(mouseOver(mx, my, 290, 350, 200, 64)) {
+				game.gameState = STATE.Menu;
+				hud.setLevel(1);
+				hud.setScore(0);
+			}
+		}
 	}
 	
 	public void mouseReleased(MouseEvent e) {
@@ -150,7 +170,7 @@ public class Menu extends MouseAdapter{
 
 			g.setFont(fnt3);
 			g.setColor(Color.white);
-			g.drawString("Use AWSD to move player and dodge enemies", 200, 200);
+			g.drawString("Use AWSD or ARROWS to move player and dodge enemies", 200, 200);
 			
 			g.setFont(fnt3);
 			g.setColor(Color.white);
@@ -182,6 +202,30 @@ public class Menu extends MouseAdapter{
 			g.setFont(fnt2);
 			g.drawRect(290,350, 200, 64);
 			g.drawString("Try Again", 330, 390);	
+		}
+		
+		else if(game.gameState == STATE.Win) {
+			Font fnt = new Font("arial", 1, 50);
+			//font-name, style, size
+			Font fnt2 = new Font("arial", 1, 30);
+			Font fnt3 = new Font("arial", 1, 20);
+			
+			g.setFont(fnt);
+			g.setColor(Color.white);
+			g.drawString("WINNER", 270, 80);
+
+			g.setFont(fnt3);
+			g.setColor(Color.white);
+			g.drawString("You won with a score of: " +  hud.getScore(), 250, 200);
+
+			g.setFont(fnt2);
+			g.drawRect(180,350, 200, 64);
+			g.drawString("Continue", 240, 390);
+			
+			g.setFont(fnt2);
+			g.drawRect(400,350, 200, 64);
+			g.drawString("Menu", 420, 390);
+			
 		}
 		else if(game.gameState == STATE.Select) {
 			Font fnt = new Font("arial", 1, 50);

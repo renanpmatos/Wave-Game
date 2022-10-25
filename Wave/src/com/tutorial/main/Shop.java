@@ -11,9 +11,9 @@ public class Shop extends MouseAdapter{
 	Handler handler;
 	HUD hud;
 	
-	private int B1 = 100;
-	private int B2 = 100;
-	private int B3 = 100; 
+	private int B1 = 1000;
+	private int B2 = 300;
+	private int B3 = 300; 
 	
 	public Shop(Handler handler, HUD hud) {
 		this.handler = handler;

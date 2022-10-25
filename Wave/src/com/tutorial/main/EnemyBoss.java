@@ -78,7 +78,7 @@ public class EnemyBoss extends GameObject{
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(Color.MAGENTA);
 		g.fillRect((int)x, (int)y, 96, 96);
 	}
 	

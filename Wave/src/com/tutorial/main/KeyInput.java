@@ -38,6 +38,10 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_D) { tempObject.setVelX(handler.spd); keyDown[2]=true; }
 				if(key == KeyEvent.VK_A) { tempObject.setVelX(-handler.spd); keyDown[3]=true; }
 				
+				if(key == KeyEvent.VK_UP) { tempObject.setVelY(-handler.spd); keyDown[0]=true; }
+				if(key == KeyEvent.VK_DOWN) { tempObject.setVelY(handler.spd); keyDown[1]=true; }
+				if(key == KeyEvent.VK_RIGHT) { tempObject.setVelX(handler.spd); keyDown[2]=true; }
+				if(key == KeyEvent.VK_LEFT) { tempObject.setVelX(-handler.spd); keyDown[3]=true; }
 				
 			}
 			
@@ -47,7 +51,6 @@ public class KeyInput extends KeyAdapter{
 			if(tempObject.getId() == ID.Player2) {
 				//key events for Player 2
 				
-
 				if(key == KeyEvent.VK_UP) { tempObject.setVelY(-8); keyDown[0]=true; }
 				if(key == KeyEvent.VK_DOWN) { tempObject.setVelY(8); keyDown[1]=true; }
 				if(key == KeyEvent.VK_RIGHT) { tempObject.setVelX(8); keyDown[2]=true; }
@@ -80,6 +83,11 @@ public class KeyInput extends KeyAdapter{
 				if(key == KeyEvent.VK_S) keyDown[1]=false; //tempObject.setVelY(0);
 				if(key == KeyEvent.VK_D) keyDown[2]=false; //tempObject.setVelX(0);
 				if(key == KeyEvent.VK_A) keyDown[3]=false; //tempObject.setVelX(0);
+
+				if(key == KeyEvent.VK_UP) keyDown[0]=false; //tempObject.setVelY(0);
+				if(key == KeyEvent.VK_DOWN) keyDown[1]=false; //tempObject.setVelY(0);
+				if(key == KeyEvent.VK_RIGHT) keyDown[2]=false; //tempObject.setVelX(0);
+				if(key == KeyEvent.VK_LEFT) keyDown[3]=false; //tempObject.setVelX(0);
 				
 				//vertical movement
 				if(!keyDown[0] && !keyDown[1]) {

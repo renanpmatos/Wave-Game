@@ -37,7 +37,7 @@ public class EnemyBossBullet extends GameObject{
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(Color.magenta);
 		g.fillRect((int)x, (int)y, 16, 16);
 	}
 	

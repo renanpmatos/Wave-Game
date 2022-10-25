@@ -20,7 +20,7 @@ public class Window extends Canvas{
 		frame.setMinimumSize(new Dimension(width, height));
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //exit button
-		frame.setResizable(false); //resize the window, can make some problems
+		frame.setResizable(true); //resize the window, can make some problems
 		frame.setLocationRelativeTo(null);// window starts in the middle of screen
 		frame.add(game);
 		frame.setVisible(true); //we can see the frame

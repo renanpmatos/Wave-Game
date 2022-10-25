@@ -1,6 +1,7 @@
 package com.tutorial.main;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class HUD {
@@ -19,7 +20,6 @@ public class HUD {
 		greenValue = HEALTH*2;
 		greenValue = Game.clamp(greenValue, 0, 255);
 		
-		
 		score++;
 	}
 	
@@ -30,10 +30,13 @@ public class HUD {
 		g.fillRect(15,15, (int)HEALTH*2,32);
 		g.setColor(Color.white);
 		g.drawRect(15,15,200 + bounds,32);
+
+		Font fnt = new Font("arial", 1, 20);
 		
-		g.drawString("Score: " + score, 20, 70);
-		g.drawString("Level: " + level, 20, 90);
-		g.drawString("Space for Shop ", 20, 112);
+		g.setFont(fnt);
+		g.drawString("Score: " + score, 20, 80);
+		g.drawString("Level: " + level, 20, 100);
+		g.drawString("Space for Shop ", 20, 150);
 	}
 	
 	public void setScore(int score) {

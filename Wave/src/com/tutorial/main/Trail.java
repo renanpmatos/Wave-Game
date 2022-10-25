@@ -19,11 +19,10 @@ public class Trail extends GameObject{
 	
 	private int width, height;
 	
-	//life 0.01 - 0.1
+	//life 0.001 - 0.1
 	
 	public Trail(int x, int y, ID id, Color color, int width, int height, float life,  Handler handler) {
 		super(x, y, id);
-		
 		this.handler = handler;
 		this.color = color;
 		this.width = width;
@@ -33,9 +32,8 @@ public class Trail extends GameObject{
 
 	public void tick() {
 		if(alpha > life) {
-			alpha -= (life - 0.00001f);
-		}else 
-			handler.removeObject(this);
+			alpha -= (life - 0.001f);
+		}else handler.removeObject(this);
 	}
 
 	public void render(Graphics g) {

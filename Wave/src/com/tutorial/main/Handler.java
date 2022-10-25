@@ -33,7 +33,7 @@ public class Handler {
 			if(tempObject.getId() == ID.Player)
 			{
 				object.clear();
-				if (Game.gameState != Game.STATE.End)
+				if (Game.gameState != Game.STATE.End || Game.gameState != Game.STATE.Win)
 				addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
 			}
 		}
@@ -46,7 +46,7 @@ public class Handler {
 			if(tempObject.getId() == ID.Player)
 			{
 				object.clear();
-				if (Game.gameState != Game.STATE.End)
+				if (Game.gameState != Game.STATE.End || Game.gameState != Game.STATE.Win)
 				addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
 			}
 		}
